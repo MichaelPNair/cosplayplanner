@@ -7,6 +7,7 @@ const port = 3000
 const expressLayouts = require('express-ejs-layouts')
 const session = require('express-session')
 const indexRouter = require('./routes/index')
+const cosplaysRouter = require('./routes/cosplay')
 
 app.set('view engine', 'ejs')
 
@@ -30,6 +31,7 @@ app.use(methodOverride(function (req, res) {
   }))
 
   app.use('/', indexRouter)
+  app.use('/cosplays', cosplaysRouter)
 
 
 
