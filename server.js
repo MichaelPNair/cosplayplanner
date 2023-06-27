@@ -8,6 +8,8 @@ const expressLayouts = require('express-ejs-layouts')
 const session = require('express-session')
 const indexRouter = require('./routes/index')
 const cosplaysRouter = require('./routes/cosplay')
+const setUser = require('./middlewares/set_user')
+const ensuredLoggedIn = require('./middlewares/ensure_logged_in')
 
 app.set('view engine', 'ejs')
 
@@ -21,6 +23,8 @@ app.use(session({
     saveUninitialized: true
 }))
 
+app.use(setUser)
+
 app.use(methodOverride(function (req, res) {
     if (req.body && typeof req.body === 'object' && '_method' in req.body) {
       // look in urlencoded POST bodies and delete it
@@ -30,8 +34,8 @@ app.use(methodOverride(function (req, res) {
     }
   }))
 
-  app.use('/', indexRouter)
-  app.use('/cosplays', cosplaysRouter)
+app.use('/', indexRouter)
+app.use('/cosplays', cosplaysRouter)
 
 
 
