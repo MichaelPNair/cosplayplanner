@@ -1,0 +1,34 @@
+{
+  "name": "cosplayplanner",
+  "version": "1.0.0",
+  "description": "This is a website to plan cosplay projects. You can add, edit and delete multiple elements of a cosplay plan to quickly gauge your progress or adjust if the plans are too difficult or too expensive.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichaelPNair/cosplayplanner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MichaelPNair/cosplayplanner/issues"
+  },
+  "homepage": "https://github.com/MichaelPNair/cosplayplanner#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "method-override": "^3.0.0",
+    "pg": "^8.11.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

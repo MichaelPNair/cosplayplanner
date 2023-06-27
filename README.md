@@ -6,6 +6,7 @@ This is a website to plan cosplay projects. You can add, edit and delete multipl
 - HTML
 - CSS
 - Javascript
+- express
 - Postgres
 
 ## Screenshots
