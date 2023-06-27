@@ -18,7 +18,10 @@ This is a website to plan cosplay projects. You can add, edit and delete multipl
 - Create some web pages
 - Create Database
 
-## Link
+## Links
+
+The website wireframes are [here](https://github.com/MichaelPNair/cosplayplanner/tree/main/wireframes).
+The ERD chart is [here](https://github.com/MichaelPNair/cosplayplanner/tree/main/ERD).
 
 ## Thanks
 Designed and coded by Michael Nair.
