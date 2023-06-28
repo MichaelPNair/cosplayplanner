@@ -3,7 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
-const port = 3000
+const port = process.env.PORT || 3000
 const expressLayouts = require('express-ejs-layouts')
 const session = require('express-session')
 const indexRouter = require('./routes/index')
@@ -18,7 +18,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 
 app.use(session({
-    secret: 'keyboard cat',
+    secret: process.env.SESSION_SECRET || 'keyboard cat',
     resave: false,
     saveUninitialized: true
 }))
