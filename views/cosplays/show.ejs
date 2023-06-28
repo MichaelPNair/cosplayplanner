@@ -1,13 +1,39 @@
 <h2>Cosplay</h2>
 
-<h3>Name</h3>
-<h3>Source</h3>
-<h3>picture url</h3>
+<img src="<%= cosplay.picture_url %> " alt="<%= cosplay.name %>">
+<h3><%= cosplay.name %></h3>
+<h3><%= cosplay.source %></h3>
+<a href="/cosplays/<%= cosplay.cos_id %>/edit">edit cosplay</a>
+<a href="/cosplays/<%= cosplay.cos_id %>/ConfirmDelete">delete cosplay</a>
 
 <h3>Total cost</h3>
+<h3><%= sums.total_cost %></h3>
 <h3>Total time</h3>
+<h3><%= sums.total_time %></h3>
 
-<h4>add task</h4>
+<h4><a href="">add task</a></h4>
 
 <h3>To Buy</h3>
 <h3>To Craft</h3>
+
+<% for (let buyTask of buyTasks) { %>
+    
+    <div class="task-card">
+        <h4><%= buyTask.name %></h4>
+        <h4><%= buyTask.cost %></h4>
+        <h4><%= buyTask.time %></h4>
+        <h4><%= buyTask.status_name %></h4>
+    </div>
+
+<% } %>
+
+<% for (let craftTask of craftTasks) { %>
+    
+    <div class="task-card">
+        <h4><%= craftTask.name %></h4>
+        <h4><%= craftTask.cost %></h4>
+        <h4><%= craftTask.time %></h4>
+        <h4><%= craftTask.status_name %></h4>
+    </div>
+
+<% } %>

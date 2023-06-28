@@ -1,5 +1,12 @@
 <h2>edit cosplay</h2>
 
-<h3>name</h3>
-<h3>source material</h3>
-<h3>picture url</h3>
+<form action="/cosplays/<%= cosplay.cos_id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <label for="">Name</label>
+    <input type="text" name="name" value="<%= cosplay.name %>">
+    <label for="">Source Material</label>
+    <input type="text" name="source" value="<%= cosplay.source %>">
+    <label for="">Picture URL</label>
+    <input type="text" name="picture_url" value="<%= cosplay.picture_url %>">
+    <button type="submit">Edit</button>
+</form>

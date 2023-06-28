@@ -1,1 +1,6 @@
-are you sure you wish to delete?
+<h2>are you sure you wish to delete <%= cosplay.name %>?</h2>
+
+<form action="/cosplays/<%= cosplay.cos_id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button>Delete</button>
+</form>

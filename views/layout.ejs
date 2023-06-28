@@ -7,7 +7,32 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1>CosplayPlanner</h1>
+    <% if(userId) { %>
+        <div class="header-grid">
+            <div>
+                <a href="/cosplays"><h1>CosplayPlanner</h1></a>
+            </div>
+            <div>
+                <p>hello <%= user.username %>!</p>
+            </div>
+            <div>
+                <form action="/logout" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <button>logout</button>
+                </form>
+            </div>
+        </div>
+    <% } else { %>
+        <div class="header-grid">
+            <div>
+                <a href="/"><h1>CosplayPlanner</h1></a>
+            </div>
+            <div>
+                <a href="/login">login</a>
+            </div>
+        </div>
+    <% } %>
+
     <%- body %>
 
     <footer>&copy; 2023</footer>

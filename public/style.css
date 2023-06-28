@@ -5,3 +5,41 @@
 body {
     background-color: mistyrose;
 }
+
+.header-grid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ui-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.ui-card > img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+
+}
+
+.ui-card > footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content {
+    padding: 10px;
+}
+
+@media (min-width: 40rem) {
+    .all-cosplays {
+        margin-left: 15%;
+        margin-right: 15%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+    }
+}

@@ -27,24 +27,24 @@ CREATE TABLE tasks (
 
 CREATE TABLE task_type (
     task_type_id SERIAL PRIMARY KEY,
-    name TEXT
+    task_name TEXT
 );
 
 CREATE TABLE status (
     status_id SERIAL PRIMARY KEY,
-    name TEXT
+    status_name TEXT
 );
 
-INSERT INTO task_type (name)
+INSERT INTO task_type (task_name)
 VALUES('Buy');
-INSERT INTO task_type (name)
+INSERT INTO task_type (task_name)
 VALUES('Craft');
 
-INSERT INTO status (name)
+INSERT INTO status (status_name)
 VALUES('Not Started');
-INSERT INTO status (name)
+INSERT INTO status (status_name)
 VALUES('In Progress');
-INSERT INTO status (name)
+INSERT INTO status (status_name)
 VALUES('Done');
 
 -- insert dummy data for demo
@@ -54,3 +54,7 @@ VALUES ('Clive', 'Final Fantasy', 'https://www.truetrophies.com/imgs/l/068928/ff
 
 INSERT INTO tasks (task_type_id, name, cost, time, description, status_id, cos_id)
 VALUES (1, 'buy wig', '200', 1, 'Purchase wig from Arda', 1, 1);
+
+-- dummy user is Michael, pudding
+INSERT INTO users (username, password_digest)
+VALUES ('Michael', '$2b$10$HVNjA1asXLU/mcEjR9KDJO6/TotLNVuIXzY2v0a.LVeMNCec1g5WO');

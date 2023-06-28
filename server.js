@@ -10,12 +10,14 @@ const indexRouter = require('./routes/index')
 const cosplaysRouter = require('./routes/cosplay')
 const setUser = require('./middlewares/set_user')
 const ensuredLoggedIn = require('./middlewares/ensure_logged_in')
+const requestLogger = require('./middlewares/request_logger')
 
 app.set('view engine', 'ejs')
 
 app.use(expressLayouts)
 app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
+app.use(requestLogger)
 
 app.use(session({
     secret: process.env.SESSION_SECRET || 'keyboard cat',

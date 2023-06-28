@@ -1,1 +1,13 @@
 <h2>sign up</h2>
+
+<form action="" method="post">
+    <label for="">username</label>
+    <input type="text" name="username">
+    <label for="">password</label>
+    <input type="password" name="password">
+    <button>Sign Up</button>
+</form>
+
+<% if(usernameTaken){ %>
+<h2>Username has already been taken. Please choose a different username.</h2>
+<% } %>
