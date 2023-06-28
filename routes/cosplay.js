@@ -13,10 +13,11 @@ router.get('/', ensuredLoggedIn, (req, res) => {
 })
 
 router.get('/:id/ConfirmDelete', ensuredLoggedIn, (req, res) => {
-    db.query("select * from cosplays where user_id = $1;", [req.session.userId],(err, dbRes) => {
+    db.query("select * from cosplays where cos_id = $1;", [req.params.id],(err, dbRes) => {
         if(err){
             console.log(err)
         }
+        console.log(dbRes.rows)
         res.render('cosplays/confirm_delete', {cosplay: dbRes.rows[0]})
     })
 })
@@ -91,13 +92,62 @@ router.get('/:id', ensuredLoggedIn, (req, res) => {
 })
 
 router.get('/:id/tasks/new', ensuredLoggedIn, (req, res) => {
+    let id = req.params.id
+    res.render('cosplays/tasks/new', {cosId: id})
+})
 
-    res.render('cosplays/tasks/new')
+router.post('/:id/tasks', ensuredLoggedIn, (req, res) => {
+    let task_type_id = Number(req.body.task_type_id)
+    let name = req.body.name
+    let cost = Number(req.body.cost)
+    let time = Number(req.body.time)
+    let description = req.body.description
+    let status_id = Number(req.body.status_id)
+    let cos_id = Number(req.params.id)
+    let sql = `INSERT INTO tasks (task_type_id, name, cost, time,description, status_id, cos_id)
+    VALUES ($1, $2, $3, $4, $5, $6, $7);`
+    console.log([task_type_id, name, cost, time, description, status_id,  cos_id])
+    db.query(sql, [task_type_id, name, cost, time, description, status_id,  cos_id], (err, dbRes) => {
+        console.log(sql)
+        res.redirect(`/cosplays/${req.params.id}`)
+    })
+
 })
 
 router.get('/:id/tasks/:taskId/edit', ensuredLoggedIn, (req, res) => {
+    let id = req.params.id
+    let taskId = Number(req.params.taskId)
+    let sql = `select * from tasks where task_id = $1;`
+    db.query(sql, [taskId], (err, dbRes) => {
+        res.render('cosplays/tasks/edit', {task: dbRes.rows[0]})
+    })
 
-    res.render('cosplays/tasks/edit')
+})
+
+router.put('/:id/tasks/:taskId', ensuredLoggedIn, (req, res) => {
+    let id = req.params.id
+    let task_id = Number(req.params.taskId)
+    let task_type_id = Number(req.body.task_type_id)
+    let name = req.body.name
+    let cost = Number(req.body.cost)
+    let time = Number(req.body.time)
+    let status_id = Number(req.body.status_id)
+    let description = req.body.description
+    let sql = `UPDATE tasks SET task_type_id = $1, name = $2, cost = $3, time = $4, status_id = $5, description = $6
+    where task_id = $7;`
+    console.log([task_type_id, name, cost, time, status_id, description, task_id])
+    db.query(sql, [task_type_id, name, cost, time, status_id, description, task_id], (err, dbRes) => {
+        res.redirect(`/cosplays/${id}`)
+    })
+})
+
+router.delete('/:id/tasks/:taskId', ensuredLoggedIn, (req, res) => {
+    let task_id = Number(req.params.taskId)
+    let sql = `DELETE FROM tasks WHERE task_id = $1;`
+    db.query(sql, [task_id], (err, dbRes) => {
+        res.redirect(`/cosplays/${req.params.id}`)
+    })
+
 })
 
 module.exports = router

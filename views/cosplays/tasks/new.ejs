@@ -1,1 +1,26 @@
 <h2>new task</h2>
+
+
+
+<form action="/cosplays/<%= cosId %>/tasks" method="post">
+    <label for="">Task type</label>
+    <select name="task_type_id">
+        <option value="1">Buy</option>
+        <option value="2">Craft</option>
+    </select>
+    <label for="">Name</label>
+    <input type="text" name="name">
+    <label for="">Cost</label>
+    <input type="number" name="cost">
+    <label for="">Time</label>
+    <input type="number" name="time">
+    <label for="">Status</label>
+    <select name="status_id">
+        <option value="1">Not Started</option>
+        <option value="2">In Progress</option>
+        <option value="3">Done</option>
+    </select>
+    <label for="">Description</label>
+    <input type="text" name="description">    
+    <button type="submit">Add new task</button>
+</form>
