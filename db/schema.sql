@@ -55,6 +55,9 @@ VALUES ('Clive', 'Final Fantasy', 'https://www.truetrophies.com/imgs/l/068928/ff
 INSERT INTO tasks (task_type_id, name, cost, time, description, status_id, cos_id)
 VALUES (1, 'buy wig', '200', 1, 'Purchase wig from Arda', 1, 1);
 
+INSERT INTO tasks (task_type_id, name, cost, time, description, status_id, cos_id)
+VALUES (2, 'make sword', '30', 5, 'Use foam from Lumins workshop', 2, 1);
+
 -- dummy user is Michael, pudding
 INSERT INTO users (username, password_digest)
 VALUES ('Michael', '$2b$10$HVNjA1asXLU/mcEjR9KDJO6/TotLNVuIXzY2v0a.LVeMNCec1g5WO');

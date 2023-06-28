@@ -9,7 +9,7 @@
 <h3>Total cost</h3>
 <h3><%= sums.total_cost %></h3>
 <h3>Total estimated time</h3>
-<h3><%= sums.total_time %></h3>
+<h3><%= sums.total_time %> hrs</h3>
 
 <h4><a href="/cosplays/<%= cosplay.cos_id %>/tasks/new">add task</a></h4>
 
@@ -21,7 +21,7 @@
     <div class="task-card">
         <h4><a href="/cosplays/<%= cosplay.cos_id %>/tasks/<%= buyTask.task_id %>/edit"><%= buyTask.name %></a></h4>
         <h4><%= buyTask.cost %></h4>
-        <h4><%= buyTask.time %></h4>
+        <h4><%= buyTask.time %> hrs</h4>
         <h4><%= buyTask.status_name %></h4>
     </div>
 
@@ -32,7 +32,7 @@
     <div class="task-card">
         <h4><a href="/cosplays/<%= cosplay.cos_id %>/tasks/<%= craftTask.task_id %>/edit"><%= craftTask.name %></a></h4>
         <h4><%= craftTask.cost %></h4>
-        <h4><%= craftTask.time %></h4>
+        <h4><%= craftTask.time %> hrs</h4>
         <h4><%= craftTask.status_name %></h4>
     </div>
 
