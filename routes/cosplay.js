@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const db = require('../db/index.js')
 const ensuredLoggedIn = require('../middlewares/ensure_logged_in.js')
+const ensuredUserIdMatch = require('../middlewares/ensure_userId_match.js')
 
 router.get('/', ensuredLoggedIn, (req, res) => {
     db.query("select * from cosplays where user_id = $1;", [req.session.userId],(err, dbRes) => {
@@ -12,7 +13,7 @@ router.get('/', ensuredLoggedIn, (req, res) => {
     })
 })
 
-router.get('/:id/ConfirmDelete', ensuredLoggedIn, (req, res) => {
+router.get('/:id/ConfirmDelete', ensuredUserIdMatch, (req, res) => {
     db.query("select * from cosplays where cos_id = $1;", [req.params.id],(err, dbRes) => {
         if(err){
             console.log(err)
@@ -22,7 +23,7 @@ router.get('/:id/ConfirmDelete', ensuredLoggedIn, (req, res) => {
     })
 })
 
-router.delete('/:id', ensuredLoggedIn, (req, res) => {
+router.delete('/:id', ensuredUserIdMatch, (req, res) => {
     let id = req.params.id
     let sql = `DELETE FROM cosplays WHERE cos_id = $1;`
     let sql2 = `DELETE FROM tasks WHERE cos_id = $1;`
@@ -53,7 +54,7 @@ router.post('/', ensuredLoggedIn, (req, res) => {
     })
 })
 
-router.get('/:id/edit', ensuredLoggedIn, (req, res) => {
+router.get('/:id/edit', ensuredUserIdMatch, (req, res) => {
     let id = req.params.id
     let sql = `select * from cosplays where cos_id = $1;`
     db.query(sql, [id], (err, dbRes) => {
@@ -63,7 +64,7 @@ router.get('/:id/edit', ensuredLoggedIn, (req, res) => {
 
 })
 
-router.put('/:id', ensuredLoggedIn, (req, res) => {
+router.put('/:id', ensuredUserIdMatch, (req, res) => {
     let id = req.params.id
     let name = req.body.name
     let source = req.body.source
@@ -74,7 +75,7 @@ router.put('/:id', ensuredLoggedIn, (req, res) => {
     })
 })
 
-router.get('/:id', ensuredLoggedIn, (req, res) => {
+router.get('/:id', ensuredUserIdMatch, (req, res) => {
     let id = req.params.id
     let sql = `select * from cosplays where cos_id = $1;`
     db.query(sql, [id], (err, dbRes) => {
@@ -98,12 +99,12 @@ router.get('/:id', ensuredLoggedIn, (req, res) => {
 
 })
 
-router.get('/:id/tasks/new', ensuredLoggedIn, (req, res) => {
+router.get('/:id/tasks/new', ensuredUserIdMatch, (req, res) => {
     let id = req.params.id
     res.render('cosplays/tasks/new', {cosId: id})
 })
 
-router.post('/:id/tasks', ensuredLoggedIn, (req, res) => {
+router.post('/:id/tasks', ensuredUserIdMatch, (req, res) => {
     let task_type_id = Number(req.body.task_type_id)
     let name = req.body.name
     let cost = Number(req.body.cost)
@@ -120,7 +121,7 @@ router.post('/:id/tasks', ensuredLoggedIn, (req, res) => {
 
 })
 
-router.get('/:id/tasks/:taskId/edit', ensuredLoggedIn, (req, res) => {
+router.get('/:id/tasks/:taskId/edit', ensuredUserIdMatch, (req, res) => {
     let id = req.params.id
     let taskId = Number(req.params.taskId)
     let sql = `select * from tasks where task_id = $1;`
@@ -129,7 +130,7 @@ router.get('/:id/tasks/:taskId/edit', ensuredLoggedIn, (req, res) => {
     })
 })
 
-router.put('/:id/tasks/:taskId', ensuredLoggedIn, (req, res) => {
+router.put('/:id/tasks/:taskId', ensuredUserIdMatch, (req, res) => {
     let id = req.params.id
     let task_id = Number(req.params.taskId)
     let task_type_id = Number(req.body.task_type_id)
@@ -145,7 +146,7 @@ router.put('/:id/tasks/:taskId', ensuredLoggedIn, (req, res) => {
     })
 })
 
-router.delete('/:id/tasks/:taskId', ensuredLoggedIn, (req, res) => {
+router.delete('/:id/tasks/:taskId', ensuredUserIdMatch, (req, res) => {
     let task_id = Number(req.params.taskId)
     let sql = `DELETE FROM tasks WHERE task_id = $1;`
     db.query(sql, [task_id], (err, dbRes) => {
@@ -155,7 +156,7 @@ router.delete('/:id/tasks/:taskId', ensuredLoggedIn, (req, res) => {
 })
 
 
-router.get('/:id/progress', ensuredLoggedIn, (req, res) => {
+router.get('/:id/progress', ensuredUserIdMatch, (req, res) => {
     let id = req.params.id
     let sql = `select * from progress_pics where cos_id = $1;`
     let sql2 = `select * from cosplays where cos_id = $1;`
@@ -166,7 +167,7 @@ router.get('/:id/progress', ensuredLoggedIn, (req, res) => {
         })
     })
 })
-router.get('/:id/progress/new', ensuredLoggedIn, (req, res) => {
+router.get('/:id/progress/new', ensuredUserIdMatch, (req, res) => {
     let id = req.params.id
     let sql = `select * from cosplays where cos_id = $1;`
     db.query(sql, [id], (err, dbRes) => {
@@ -174,7 +175,7 @@ router.get('/:id/progress/new', ensuredLoggedIn, (req, res) => {
     })
 })
 
-router.get('/:id/progress/:progressId/edit', ensuredLoggedIn, (req, res) => {
+router.get('/:id/progress/:progressId/edit', ensuredUserIdMatch, (req, res) => {
     let id = req.params.id
     let progressId = Number(req.params.progressId)
     let sql = `select * from progress_pics where progress_pic_id = $1;`
@@ -188,7 +189,7 @@ router.get('/:id/progress/:progressId/edit', ensuredLoggedIn, (req, res) => {
     })
 })
 
-router.get('/:id/progress/:progressId/ConfirmDelete', ensuredLoggedIn, (req, res) => {
+router.get('/:id/progress/:progressId/ConfirmDelete', ensuredUserIdMatch, (req, res) => {
     let id = req.params.id
     let progressId = Number(req.params.progressId)
     let sql = `select * from progress_pics where progress_pic_id = $1;`
@@ -202,7 +203,7 @@ router.get('/:id/progress/:progressId/ConfirmDelete', ensuredLoggedIn, (req, res
     })
 })
 
-router.post('/:id/progress/', ensuredLoggedIn, (req, res) => {
+router.post('/:id/progress/', ensuredUserIdMatch, (req, res) => {
     let name = req.body.name
     let picture_url = req.body.picture_url
     let cos_id = Number(req.params.id)
@@ -214,7 +215,7 @@ router.post('/:id/progress/', ensuredLoggedIn, (req, res) => {
 
 })
 
-router.put('/:id/progress/:progressId', ensuredLoggedIn, (req, res) => {
+router.put('/:id/progress/:progressId', ensuredUserIdMatch, (req, res) => {
     let id = req.params.id
     let progressId = req.params.progressId
     let name = req.body.name
@@ -226,7 +227,7 @@ router.put('/:id/progress/:progressId', ensuredLoggedIn, (req, res) => {
     })
 })
 
-router.delete('/:id/progress/:progressId', ensuredLoggedIn, (req, res) => {
+router.delete('/:id/progress/:progressId', ensuredUserIdMatch, (req, res) => {
     let progress_pic_id = Number(req.params.progressId)
     let sql = `DELETE FROM progress_pics WHERE progress_pic_id = $1;`
     db.query(sql, [progress_pic_id], (err, dbRes) => {
