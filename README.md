@@ -35,7 +35,7 @@ The ERD chart is [here](https://github.com/MichaelPNair/cosplayplanner/tree/main
 ![Screenshot of viewing details of a cosplay](/screenshots/Cosplay%20Details.png)
 
 ### Add new tasks to a cosplay
-![Screenshot of adding a task](/screenshots/New%20Task.png)
+![Screenshot of adding a task](/screenshots/Add%20Task.png)
 
 ## Edit a cosplay
 ![Screenshot of editing a cosplay](/screenshots/Edit%20Cosplay.png)
