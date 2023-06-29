@@ -6,10 +6,17 @@
     <input type="hidden" name="_method" value="put">
     <div class="inputs">
         <label for="">Task type</label>
-        <select name="task_type_id">
-            <option value="1">Buy</option>
-            <option value="2">Craft</option>
-        </select>
+        <% if(task.task_type_id === 1) { %>
+            <select name="task_type_id">
+                <option selected value="1">Buy</option>
+                <option value="2">Craft</option>
+            </select>
+        <% } else { %>
+            <select name="task_type_id">
+                <option value="1">Buy</option>
+                <option selected value="2">Craft</option>
+            </select>
+        <% } %>
     </div>
     <div class="inputs">
         <label for="">Name</label>
@@ -25,11 +32,26 @@
     </div>
     <div class="inputs">
         <label for="">Status</label>
-        <select name="status_id">
-            <option value="1">Not Started</option>
-            <option value="2">In Progress</option>
-            <option value="3">Done</option>
-        </select>
+        <% if(task.status_id === 2) { %>
+            <select name="status_id">
+                <option value="1">Not Started</option>
+                <option selected value="2">In Progress</option>
+                <option value="3">Done</option>
+            </select>
+        <% } else if(task.status_id === 3) { %>
+            <select name="status_id">
+                <option value="1">Not Started</option>
+                <option value="2">In Progress</option>
+                <option selected value="3">Done</option>
+            </select>
+        <% } else { %>
+            <select name="status_id">
+                <option selected value="1">Not Started</option>
+                <option value="2">In Progress</option>
+                <option value="3">Done</option>
+            </select>
+        <% } %>
+
     </div>
     <div class="inputs">
         <label for="">Description</label>
