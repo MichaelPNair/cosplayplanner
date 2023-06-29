@@ -65,6 +65,7 @@ These tasks can also be edited. If you change the task type from Buy to Craft, t
 - Improve styling of tasks being shown
 - Improve styling of pages for editing or deleting tasks or cosplays
 - Allow of uploading of own image files
+- Ability to reorder tasks
 
 
 ## Thanks
