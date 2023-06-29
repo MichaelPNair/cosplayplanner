@@ -60,6 +60,10 @@ You can add tasks to a cosplay and will be asked to fill in the task type, name,
 
 These tasks can also be edited. If you change the task type from Buy to Craft, the task will appear in the corresponding column in the cosplay details page.
 
+If you set the status of a task to Done, it will have a grey background.
+
+The total costs and time of the tasks will automatically be displayed with any changes to the tasks.
+
 ## Future Improvement
 - Improve styling of buttons
 - Improve styling of tasks being shown

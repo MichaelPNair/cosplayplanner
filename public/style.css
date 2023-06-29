@@ -178,6 +178,10 @@ label {
     padding-right: 10%;
 }
 
+.done-card {
+    background-color: grey;
+}
+
 
 footer {
     margin-top: 20%;

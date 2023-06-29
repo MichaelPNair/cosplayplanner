@@ -82,7 +82,11 @@ router.get('/:id', ensuredLoggedIn, (req, res) => {
                 let sql4 = `select sum(cost) as total_cost, sum(time) as total_time from tasks where cos_id = $1;`
 
                 db.query(sql4, [id], (err, dbRes4) => {
-                    res.render('cosplays/show', {cosplay: dbRes.rows[0], buyTasks: dbRes2.rows, craftTasks: dbRes3.rows, sums: dbRes4.rows[0]})
+                    let sql5 = `select sum(cost) as not_done_cost, sum(time) as not_done_time from tasks where cos_id = $1 AND status_id <> 3;`
+                    db.query(sql5, [id], (err, dbRes5) => {
+
+                        res.render('cosplays/show', {cosplay: dbRes.rows[0], buyTasks: dbRes2.rows, craftTasks: dbRes3.rows, sums: dbRes4.rows[0], notDoneSums: dbRes5.rows[0]})
+                    })
                 })
 
             })
