@@ -185,7 +185,12 @@ label {
 
 footer {
     margin-top: 20%;
+    display: grid;
+    font-size: medium;
+    margin: 0;
+    font-family: 'Source Code Pro', monospace;
 }
+
 
 @media (min-width: 40rem) {
     .all-cosplays {
