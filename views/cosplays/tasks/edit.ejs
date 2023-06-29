@@ -35,11 +35,11 @@
         <label for="">Description</label>
         <input type="text" name="description" value="<%= task.description %>">      
     </div>
-    <button type="submit">Edit task</button>
+    <button class="reduced-margin button" type="submit">Edit task</button>
 </form>
 
 <form action="/cosplays/<%= task.cos_id %>/tasks/<%= task.task_id %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <button class="delete-button">Delete</button>
+    <button class="reduced-margin button delete-color">Delete</button>
 </form>
-<a class="cancel button" href="/cosplays/<%= task.cos_id %>">Cancel</a>
+<a class="reduced-margin button" href="/cosplays/<%= task.cos_id %>">Cancel</a>

@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-h1,h2,h3,p{
+h1,h2,h3,h4,p{
     font-size: medium;
     margin: 0;
     font-family: 'Source Code Pro', monospace;
@@ -109,8 +109,11 @@ body {
     text-decoration: none;
     background-color: purple;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    border: solid 1px white;
     
 }
+
 
 .add-cosplay {
     width: fit-content;
@@ -147,11 +150,7 @@ body {
     text-align: left;
 }
 
-.cancel {
-    margin: 1% 0 0 0;
-}
-
-.delete-button {
+.reduced-margin {
     margin: 1% 0 0 0;
 }
 

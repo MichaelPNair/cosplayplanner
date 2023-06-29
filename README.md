@@ -4,6 +4,7 @@ This is a website to plan cosplay projects. You can add, edit and delete multipl
 
 ## Links
 
+The website is hosted on render [here](https://cosplayplanner.onrender.com).
 The website wireframes are [here](https://github.com/MichaelPNair/cosplayplanner/tree/main/wireframes).
 The ERD chart is [here](https://github.com/MichaelPNair/cosplayplanner/tree/main/ERD).
 
