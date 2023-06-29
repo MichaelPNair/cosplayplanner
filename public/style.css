@@ -159,6 +159,10 @@ label {
     font-family: 'Source Code Pro', monospace;
 }
 
+.total-text {
+    text-align: center;
+}
+
 .task-grid {
     display: flex;
     justify-content: space-around;
