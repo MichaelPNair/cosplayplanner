@@ -43,6 +43,12 @@ The ERD chart is [here](https://github.com/MichaelPNair/cosplayplanner/tree/main
 ## Delete a cosplay
 ![Screenshot of deleting a cosplay](/screenshots/Delete%20Cosplay.png)
 
+## View progress pictures
+![Screenshot of saved progress pictures](/screenshots/Progress%20Pictures.png)
+
+## Add a progress picture
+![Screenshot of adding a progress picture](/screenshots/Add%20Progress%20Picture.png)
+
 ## Getting Started
 This page is connected to a database to keep track of logged in users and allow logged in users to update pages.
 
@@ -64,6 +70,10 @@ If you set the status of a task to Done, it will have a grey background.
 
 The total costs and time of the tasks will automatically be displayed with any changes to the tasks.
 
+You can also add progress pictures to your cosplay. From the cosplay details page, you can view the progress pictures.
+
+From the progress pictures page, you can add, edit or delete progress pictures.
+
 ## Future Improvement
 - Improve styling of buttons
 - Improve styling of tasks being shown
@@ -71,7 +81,7 @@ The total costs and time of the tasks will automatically be displayed with any c
 - Allow of uploading of own image files
 - Ability to reorder tasks
 - Have Done tasks move below other tasks automatically
-- Add page to display progress pictures of cosplays
+- Select favourite progress picture and have it displayed in cosplay details page
 
 
 ## Thanks

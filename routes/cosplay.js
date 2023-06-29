@@ -110,7 +110,6 @@ router.post('/:id/tasks', ensuredLoggedIn, (req, res) => {
     let cos_id = Number(req.params.id)
     let sql = `INSERT INTO tasks (task_type_id, name, cost, time,description, status_id, cos_id)
     VALUES ($1, $2, $3, $4, $5, $6, $7);`
-    console.log([task_type_id, name, cost, time, description, status_id,  cos_id])
     db.query(sql, [task_type_id, name, cost, time, description, status_id,  cos_id], (err, dbRes) => {
         console.log(sql)
         res.redirect(`/cosplays/${req.params.id}`)
@@ -125,7 +124,6 @@ router.get('/:id/tasks/:taskId/edit', ensuredLoggedIn, (req, res) => {
     db.query(sql, [taskId], (err, dbRes) => {
         res.render('cosplays/tasks/edit', {task: dbRes.rows[0]})
     })
-
 })
 
 router.put('/:id/tasks/:taskId', ensuredLoggedIn, (req, res) => {
@@ -139,7 +137,6 @@ router.put('/:id/tasks/:taskId', ensuredLoggedIn, (req, res) => {
     let description = req.body.description
     let sql = `UPDATE tasks SET task_type_id = $1, name = $2, cost = $3, time = $4, status_id = $5, description = $6
     where task_id = $7;`
-    console.log([task_type_id, name, cost, time, status_id, description, task_id])
     db.query(sql, [task_type_id, name, cost, time, status_id, description, task_id], (err, dbRes) => {
         res.redirect(`/cosplays/${id}`)
     })
@@ -153,5 +150,86 @@ router.delete('/:id/tasks/:taskId', ensuredLoggedIn, (req, res) => {
     })
 
 })
+
+
+router.get('/:id/progress', ensuredLoggedIn, (req, res) => {
+    let id = req.params.id
+    let sql = `select * from progress_pics where cos_id = $1;`
+    let sql2 = `select * from cosplays where cos_id = $1;`
+    db.query(sql, [id], (err, dbRes) => {
+        db.query(sql2, [id], (err, dbRes2) => {
+
+            res.render('cosplays/progress/index', {cosId: id, progressPics: dbRes.rows, cosplay: dbRes2.rows[0]})
+        })
+    })
+})
+router.get('/:id/progress/new', ensuredLoggedIn, (req, res) => {
+    let id = req.params.id
+    let sql = `select * from cosplays where cos_id = $1;`
+    db.query(sql, [id], (err, dbRes) => {
+        res.render('cosplays/progress/new', {cosId: id, cosplay: dbRes.rows[0]})
+    })
+})
+
+router.get('/:id/progress/:progressId/edit', ensuredLoggedIn, (req, res) => {
+    let id = req.params.id
+    let progressId = Number(req.params.progressId)
+    let sql = `select * from progress_pics where progress_pic_id = $1;`
+    let sql2 = `select * from cosplays where cos_id = $1;`
+    db.query(sql, [progressId], (err, dbRes) => {
+        
+        db.query(sql2, [id], (err, dbRes2) => {
+
+            res.render('cosplays/progress/edit', {progressPic: dbRes.rows[0], cosplay: dbRes2.rows[0]})
+        })
+    })
+})
+
+router.get('/:id/progress/:progressId/ConfirmDelete', ensuredLoggedIn, (req, res) => {
+    let id = req.params.id
+    let progressId = Number(req.params.progressId)
+    let sql = `select * from progress_pics where progress_pic_id = $1;`
+    let sql2 = `select * from cosplays where cos_id = $1;`
+    db.query(sql, [progressId], (err, dbRes) => {
+        
+        db.query(sql2, [id], (err, dbRes2) => {
+
+            res.render('cosplays/progress/confirm_delete', {progressPic: dbRes.rows[0], cosplay: dbRes2.rows[0]})
+        })
+    })
+})
+
+router.post('/:id/progress/', ensuredLoggedIn, (req, res) => {
+    let name = req.body.name
+    let picture_url = req.body.picture_url
+    let cos_id = Number(req.params.id)
+    let sql = `INSERT INTO progress_pics (name, picture_url, cos_id) 
+        VALUES ($1, $2, $3);`
+    db.query(sql, [name, picture_url, cos_id], (err, dbRes) => {
+        res.redirect(`/cosplays/${req.params.id}/progress`)
+    })
+
+})
+
+router.put('/:id/progress/:progressId', ensuredLoggedIn, (req, res) => {
+    let id = req.params.id
+    let progressId = req.params.progressId
+    let name = req.body.name
+    let picture_url = req.body.picture_url
+    let sql = `UPDATE progress_pics SET name = $1, picture_url = $2
+    where progress_pic_id = $3;`
+    db.query(sql, [name, picture_url, progressId], (err, dbRes) => {
+        res.redirect(`/cosplays/${id}/progress`)
+    })
+})
+
+router.delete('/:id/progress/:progressId', ensuredLoggedIn, (req, res) => {
+    let progress_pic_id = Number(req.params.progressId)
+    let sql = `DELETE FROM progress_pics WHERE progress_pic_id = $1;`
+    db.query(sql, [progress_pic_id], (err, dbRes) => {
+        res.redirect(`/cosplays/${req.params.id}/progress`)
+    })
+})
+
 
 module.exports = router

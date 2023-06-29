@@ -1,0 +1,32 @@
+
+
+<div class="show-grid">
+    
+    <div>
+        <a href="/cosplays/<%= cosplay.cos_id %>">
+            
+            <img src="<%= cosplay.picture_url %> " alt="<%= cosplay.name %>">
+        </a>
+    </div>
+    <div class="text-box">
+        <h2><%= cosplay.name %></h3>
+        <h2><%= cosplay.source %></h3>
+    </div>
+</div>
+
+<h2>Edit Progress Picture</h2>
+        
+<form action="/cosplays/<%= cosplay.cos_id %>/progress/<%= progressPic.progress_pic_id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <div class="inputs">
+        <label for="">Name</label>
+        <input type="text" name="name" value="<%= progressPic.name %>">
+    </div>
+    <div class="inputs">
+        <label for="">Picture URL</label>
+        <input type="text" name="picture_url" value="<%= progressPic.picture_url %>">
+    </div>
+    <button class="reduced-margin button" type="submit">Edit</button>
+</form>
+
+<a class="reduced-margin button" href="/cosplays/<%= cosplay.cos_id %>/progress">Cancel</a>

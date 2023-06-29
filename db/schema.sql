@@ -35,6 +35,13 @@ CREATE TABLE status (
     status_name TEXT
 );
 
+CREATE TABLE progress_pics (
+    progress_pic_id SERIAL PRIMARY KEY,
+    name TEXT,
+    picture_url TEXT,
+    cos_id INTEGER
+);
+
 INSERT INTO task_type (task_name)
 VALUES('Buy');
 INSERT INTO task_type (task_name)
@@ -57,6 +64,9 @@ VALUES (1, 'buy wig', '200', 1, 'Purchase wig from Arda', 1, 1);
 
 INSERT INTO tasks (task_type_id, name, cost, time, description, status_id, cos_id)
 VALUES (2, 'make sword', '30', 5, 'Use foam from Lumins workshop', 2, 1);
+
+INSERT INTO progress_pics (name, picture_url, cos_id)
+VALUES ('Alibaba listing', 'https://ae01.alicdn.com/kf/S1bcf42a58b5c4e3aa6d00bba01525f86z/Adult-FF16-Clive-Rosfield-Costume-Cosplay-Final-Fantasy-XVI-Halloween-Outfit-Fancy-Main-Player-Character-Party.jpg_960x960.jpg', 1);
 
 -- dummy user is Michael, pudding
 INSERT INTO users (username, password_digest)
