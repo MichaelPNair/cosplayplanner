@@ -60,7 +60,7 @@ When you see your list of cosplays, click the add cosplay button to add a new co
 
 When adding a cosplay, you will be asked to include the name, the source material and a URL of an image.
 
-You can also edit a cosplay and delete a cosplay. If you delete a cosplay, any tasks within the cosplay will also be deleted.
+You can also edit a cosplay and delete a cosplay. If you delete a cosplay, any tasks and progress pictures within the cosplay will also be deleted.
 
 You can add tasks to a cosplay and will be asked to fill in the task type, name, cost, time, completion status and a description.
 

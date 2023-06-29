@@ -26,9 +26,12 @@ router.delete('/:id', ensuredLoggedIn, (req, res) => {
     let id = req.params.id
     let sql = `DELETE FROM cosplays WHERE cos_id = $1;`
     let sql2 = `DELETE FROM tasks WHERE cos_id = $1;`
+    let sql3 = `DELETE FROM progress_pics WHERE cos_id = $1;`
     db.query(sql, [req.params.id], (err, dbRes) => {
         db.query(sql2, [req.params.id], (err, dbRes2) => {
-            res.redirect('/cosplays')
+            db.query(sql3, [req.params.id], (err, dbRes3) => {
+                res.redirect('/cosplays')
+            })
         })
     })
 
