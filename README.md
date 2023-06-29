@@ -70,6 +70,8 @@ The total costs and time of the tasks will automatically be displayed with any c
 - Improve styling of pages for editing or deleting tasks or cosplays
 - Allow of uploading of own image files
 - Ability to reorder tasks
+- Have Done tasks move below other tasks automatically
+- Add page to display progress pictures of cosplays
 
 
 ## Thanks
