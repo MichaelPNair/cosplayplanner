@@ -4,31 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CosplayPlanner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <% if(userId) { %>
         <div class="header-grid">
-            <div>
-                <a href="/cosplays"><h1>CosplayPlanner</h1></a>
+            <div >
+                <a class="logo button" href="/cosplays"><h1>CosplayPlanner</h1></a>
             </div>
-            <div>
-                <p>hello <%= user.username %>!</p>
-            </div>
-            <div>
-                <form action="/logout" method="post">
-                    <input type="hidden" name="_method" value="delete">
-                    <button>logout</button>
-                </form>
+            <div class="logout-grid">
+                <div >
+                    <p>Hello <%= user.username %>!</p>
+                </div>
+                <div >
+                    <form action="/logout" method="post">
+                        <input type="hidden" name="_method" value="delete">
+                        <button>Logout</button>
+                    </form>
+                </div>
             </div>
         </div>
     <% } else { %>
         <div class="header-grid">
             <div>
-                <a href="/"><h1>CosplayPlanner</h1></a>
+                <a class="logo button" href="/"><h1>CosplayPlanner</h1></a>
             </div>
             <div>
-                <a href="/login">login</a>
+                <h2><a class="login button" href="/login">Login</a></h2>
             </div>
         </div>
     <% } %>

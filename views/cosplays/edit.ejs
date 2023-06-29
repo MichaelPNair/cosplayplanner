@@ -1,12 +1,34 @@
-<h2>edit cosplay</h2>
+<h2>Edit Cosplay</h2>
+
+<div class="show-grid">
+
+    <div>
+        <a href="/cosplays/<%= cosplay.cos_id %>">
+
+            <img src="<%= cosplay.picture_url %> " alt="<%= cosplay.name %>">
+        </a>
+    </div>
+    <div class="text-box">
+        <h2><%= cosplay.name %></h3>
+        <h2><%= cosplay.source %></h3>
+    </div>
+</div>
 
 <form action="/cosplays/<%= cosplay.cos_id %>" method="post">
     <input type="hidden" name="_method" value="put">
-    <label for="">Name</label>
-    <input type="text" name="name" value="<%= cosplay.name %>">
-    <label for="">Source Material</label>
-    <input type="text" name="source" value="<%= cosplay.source %>">
-    <label for="">Picture URL</label>
-    <input type="text" name="picture_url" value="<%= cosplay.picture_url %>">
+    <div class="inputs">
+        <label for="">Name</label>
+        <input type="text" name="name" value="<%= cosplay.name %>">
+    </div>
+    <div class="inputs">
+        <label for="">Source Material</label>
+        <input type="text" name="source" value="<%= cosplay.source %>">
+    </div>
+    <div class="inputs">
+        <label for="">Picture URL</label>
+        <input type="text" name="picture_url" value="<%= cosplay.picture_url %>">
+    </div>
     <button type="submit">Edit</button>
 </form>
+
+<a class="cancel button" href="/cosplays/<%= cosplay.cos_id %>">Cancel</a>

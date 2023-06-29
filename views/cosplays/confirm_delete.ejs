@@ -1,7 +1,21 @@
+<div class="show-grid">
+
+    <div>
+        <a href="/cosplays/<%= cosplay.cos_id %>">
+
+            <img src="<%= cosplay.picture_url %> " alt="<%= cosplay.name %>">
+        </a>
+    </div>
+    <div class="text-box">
+        <h2><%= cosplay.name %></h3>
+        <h2><%= cosplay.source %></h3>
+    </div>
+</div>
+
 <h2>are you sure you wish to delete <%= cosplay.name %>?</h2>
 
 <form action="/cosplays/<%= cosplay.cos_id %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <button>Delete</button>
+    <button class="delete-button">Delete</button>
 </form>
-<a href="/cosplays/<%= cosplay.cos_id %>">Cancel</a>
+<a class="cancel button" href="/cosplays/<%= cosplay.cos_id %>">Cancel</a>

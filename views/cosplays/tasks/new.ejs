@@ -1,26 +1,40 @@
-<h2>new task</h2>
+<h2>New Task</h2>
 
 
 
 <form action="/cosplays/<%= cosId %>/tasks" method="post">
-    <label for="">Task type</label>
-    <select name="task_type_id">
-        <option value="1">Buy</option>
-        <option value="2">Craft</option>
-    </select>
-    <label for="">Name</label>
-    <input type="text" name="name">
-    <label for="">Cost</label>
-    <input type="number" name="cost">
-    <label for="">Time (hours)</label>
-    <input type="number" name="time">
-    <label for="">Status</label>
-    <select name="status_id">
-        <option value="1">Not Started</option>
-        <option value="2">In Progress</option>
-        <option value="3">Done</option>
-    </select>
-    <label for="">Description</label>
-    <input type="text" name="description">    
+    <div class="inputs">
+        <label for="">Task type</label>
+        <select name="task_type_id">
+            <option value="1">Buy</option>
+            <option value="2">Craft</option>
+        </select>
+    </div>
+    <div class="inputs">
+        <label for="">Name</label>
+        <input type="text" name="name">
+    </div>
+    <div class="inputs">
+        <label for="">Cost ($)</label>
+        <input type="text" name="cost">
+    </div>
+    <div class="inputs">
+        <label for="">Time (hours)</label>
+        <input type="text" name="time">
+    </div>
+    <div class="inputs">
+        <label for="">Status</label>
+        <select name="status_id">
+            <option value="1">Not Started</option>
+            <option value="2">In Progress</option>
+            <option value="3">Done</option>
+        </select>
+    </div>
+    <div class="inputs">
+        <label for="">Description</label>
+        <input type="text" name="description">    
+    </div>
     <button type="submit">Add new task</button>
 </form>
+
+<a class="cancel button" href="/cosplays/<%= cosId %>">Cancel</a>

@@ -1,33 +1,45 @@
-<h2>edit task</h2>
+<h2>Edit Task</h2>
 
 
 
 <form action="/cosplays/<%= task.cos_id %>/tasks/<%= task.task_id %>" method="post">
     <input type="hidden" name="_method" value="put">
-    <label for="">Task type</label>
-    <select name="task_type_id">
-        <option value="1">Buy</option>
-        <option value="2">Craft</option>
-    </select>
-    <label for="">Name</label>
-    <input type="text" name="name" value="<%= task.name %>">
-    <label for="">Cost</label>
-    <input type="number" name="cost" value="<%= task.cost %>">
-    <label for="">Time (hours)</label>
-    <input type="number" name="time" value="<%= task.time %>">
-    <label for="">Status</label>
-    <select name="status_id">
-        <option value="1">Not Started</option>
-        <option value="2">In Progress</option>
-        <option value="3">Done</option>
-    </select>
-    <label for="">Description</label>
-    <input type="text" name="description" value="<%= task.description %>">      
+    <div class="inputs">
+        <label for="">Task type</label>
+        <select name="task_type_id">
+            <option value="1">Buy</option>
+            <option value="2">Craft</option>
+        </select>
+    </div>
+    <div class="inputs">
+        <label for="">Name</label>
+        <input type="text" name="name" value="<%= task.name %>">
+    </div>
+    <div class="inputs">
+        <label for="">Cost ($)</label>
+        <input type="text" name="cost" value="<%= task.cost %>">
+    </div>
+    <div class="inputs">
+        <label for="">Time (hours)</label>
+        <input type="text" name="time" value="<%= task.time %>">
+    </div>
+    <div class="inputs">
+        <label for="">Status</label>
+        <select name="status_id">
+            <option value="1">Not Started</option>
+            <option value="2">In Progress</option>
+            <option value="3">Done</option>
+        </select>
+    </div>
+    <div class="inputs">
+        <label for="">Description</label>
+        <input type="text" name="description" value="<%= task.description %>">      
+    </div>
     <button type="submit">Edit task</button>
 </form>
 
 <form action="/cosplays/<%= task.cos_id %>/tasks/<%= task.task_id %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <button>Delete</button>
+    <button class="delete-button">Delete</button>
 </form>
-<a href="/cosplays/<%= task.cos_id %>">Cancel</a>
+<a class="cancel button" href="/cosplays/<%= task.cos_id %>">Cancel</a>

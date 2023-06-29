@@ -2,6 +2,12 @@
     box-sizing: border-box;
 }
 
+h1,h2,h3,p{
+    font-size: medium;
+    margin: 0;
+    font-family: 'Source Code Pro', monospace;
+}
+
 body {
     background-color: mistyrose;
 }
@@ -9,20 +15,46 @@ body {
 .header-grid {
     display: flex;
     justify-content: space-between;
+    background-color: lightblue;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-bottom: 20px;
+}
+
+.logout-grid {
+    display: flex;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    gap: 10px;
+}
+
+.signup-login-grid {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+
+.intro-text {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 3%;
 }
 
 .ui-card {
-    background-color: white;
+    background-color: lightblue;
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 10px;
 }
 
-.ui-card > img {
+.ui-card img {
     width: 100%;
+    aspect-ratio: 1/1;
     display: block;
     object-fit: cover;
-
+    
 }
 
 .ui-card > footer {
@@ -32,6 +64,121 @@ body {
 
 .content {
     padding: 10px;
+}
+
+.show-grid {
+    display: flex;
+    margin-bottom: 32px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.show-grid img {
+    width: 100px;
+    aspect-ratio: 1/1;
+    display: block;
+    object-fit: cover;
+}
+
+.text-box {
+    background-color: lightblue;
+    border-radius: 0 10px 10px 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.show-grid h2 {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+
+.button {
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-align: center;
+    width: 160px;
+    height: 48px;
+    line-height: 48px;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto 32px;
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-decoration: none;
+    background-color: purple;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+.add-cosplay {
+    width: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.button-grid {
+    display: flex;
+}
+
+.large-button {
+    width: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.delete-color {
+    background-color: darkred;
+}
+
+.logo {
+    margin: 0;
+}
+
+.login {
+    margin: 0;
+}
+
+.inputs {
+    margin: 1% 0 1% 0;
+    text-align: left;
+}
+
+.cancel {
+    margin: 1% 0 0 0;
+}
+
+.delete-button {
+    margin: 1% 0 0 0;
+}
+
+
+label {
+    font-family: 'Source Code Pro', monospace;
+}
+
+.task-grid {
+    display: flex;
+    justify-content: space-around;
+}
+
+.task-card {
+    display: flex;
+    background-color: lightblue;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    gap: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+
+
+footer {
+    margin-top: 20%;
 }
 
 @media (min-width: 40rem) {

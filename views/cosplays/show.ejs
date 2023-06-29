@@ -1,39 +1,85 @@
-<h2>Cosplay</h2>
+<div class="show-grid">
 
-<img src="<%= cosplay.picture_url %> " alt="<%= cosplay.name %>">
-<h3><%= cosplay.name %></h3>
-<h3><%= cosplay.source %></h3>
-<a href="/cosplays/<%= cosplay.cos_id %>/edit">edit cosplay</a>
-<a href="/cosplays/<%= cosplay.cos_id %>/ConfirmDelete">delete cosplay</a>
-
-<h3>Total cost</h3>
-<h3><%= sums.total_cost %></h3>
-<h3>Total estimated time</h3>
-<h3><%= sums.total_time %> hrs</h3>
-
-<h4><a href="/cosplays/<%= cosplay.cos_id %>/tasks/new">add task</a></h4>
-
-<h3>To Buy</h3>
-<h3>To Craft</h3>
-
-<% for (let buyTask of buyTasks) { %>
-    
-    <div class="task-card">
-        <h4><a href="/cosplays/<%= cosplay.cos_id %>/tasks/<%= buyTask.task_id %>/edit"><%= buyTask.name %></a></h4>
-        <h4><%= buyTask.cost %></h4>
-        <h4><%= buyTask.time %> hrs</h4>
-        <h4><%= buyTask.status_name %></h4>
+    <div>
+        <img src="<%= cosplay.picture_url %> " alt="<%= cosplay.name %>">
     </div>
-
-<% } %>
-
-<% for (let craftTask of craftTasks) { %>
-    
-    <div class="task-card">
-        <h4><a href="/cosplays/<%= cosplay.cos_id %>/tasks/<%= craftTask.task_id %>/edit"><%= craftTask.name %></a></h4>
-        <h4><%= craftTask.cost %></h4>
-        <h4><%= craftTask.time %> hrs</h4>
-        <h4><%= craftTask.status_name %></h4>
+    <div class="text-box">
+        <h2><%= cosplay.name %></h3>
+        <h2><%= cosplay.source %></h3>
     </div>
+</div>
+<div class="button-grid">
+    <div>
+        <a class="button large-button" href="/cosplays/<%= cosplay.cos_id %>/edit">Edit Cosplay</a>
+    </div>
+    <div>
+        <a class="button large-button delete-color" href="/cosplays/<%= cosplay.cos_id %>/ConfirmDelete">Delete Cosplay</a>
+    </div>
+</div>
 
-<% } %>
+<h3>Total cost: $<%= sums.total_cost %></h3>
+<h3>Total estimated time: <%= sums.total_time %> hrs</h3>
+
+<h4><a class="button" href="/cosplays/<%= cosplay.cos_id %>/tasks/new">add task</a></h4>
+
+
+<div class="task-grid">
+    <div>
+        <div>
+            <h3>To Buy</h3>
+        </div>
+        
+        <% for (let buyTask of buyTasks) { %>
+            
+            <a href="/cosplays/<%= cosplay.cos_id %>/tasks/<%= buyTask.task_id %>/edit">
+                <div class="task-card">
+                    <div>
+                        <h4><%= buyTask.name %></h4>
+                    </div>
+                    <div>
+                        <h4>Cost: $<%= buyTask.cost %></h4>
+                    </div>
+                    <div>
+                        <h4>Time: <%= buyTask.time %> hrs</h4>
+                    </div>
+                    <div>
+                        <h4><%= buyTask.status_name %></h4>
+                    </div>
+                </div>
+            </a>
+
+            
+        <% } %>
+
+    </div>
+    <div>
+        <div>
+            <h3>To Craft</h3>
+        </div>
+
+        <% for (let craftTask of craftTasks) { %>
+            
+            <a href="/cosplays/<%= cosplay.cos_id %>/tasks/<%= craftTask.task_id %>/edit">
+                <div class="task-card">
+                    <div>
+                        <h4><%= craftTask.name %></h4>
+                    </div>
+                    <div>
+                        <h4>Cost: $<%= craftTask.cost %></h4>
+                    </div>
+                    <div>
+                        <h4>Time: <%= craftTask.time %> hrs</h4>
+                    </div>
+                    <div>
+                        <h4><%= craftTask.status_name %></h4>
+                    </div>
+                </div>
+
+            </a>
+            
+        <% } %>
+            
+     </div>
+
+</div>
+    
