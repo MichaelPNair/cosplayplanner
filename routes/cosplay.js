@@ -71,7 +71,7 @@ router.put('/:id', ensuredUserIdMatch, (req, res) => {
     let url = req.body.picture_url
     let sql = `UPDATE cosplays SET name = $1, source = $2, picture_url = $3 where cos_id = $4;`
     db.query(sql, [name, source, url, id], (err, dbRes) => {
-        res.redirect(`/cosplays/${id}`)
+        res.redirect(`/cosplays`)
     })
 })
 

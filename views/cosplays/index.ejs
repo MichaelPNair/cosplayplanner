@@ -10,6 +10,13 @@
                 <h2><a href="/cosplays/<%= cosplay.cos_id %>"><%= cosplay.name %></a></h2>
                 <h2><%= cosplay.source %></h2>
             </section>
+            <footer class="content">
+                <div>
+                    <span><a href="/cosplays/<%= cosplay.cos_id %>/edit">Edit</a></span>
+                </div>
+                <div>
+                    <span><a href="/cosplays/<%= cosplay.cos_id %>/ConfirmDelete">Delete</a></span>
+                </div>
         </div>
     
     <% } %>

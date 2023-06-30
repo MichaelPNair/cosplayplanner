@@ -21,6 +21,13 @@ body {
     margin-bottom: 20px;
 }
 
+footer {
+    margin: 0;
+    margin-top: 20%;
+    font-size: medium;
+    font-family: 'Source Code Pro', monospace;
+}
+
 .logout-grid {
     display: flex;
     margin-block-start: 1em;
@@ -60,6 +67,9 @@ body {
 .ui-card > footer {
     display: flex;
     justify-content: space-between;
+    font-size: medium;
+    margin: 0;
+    font-family: 'Source Code Pro', monospace;
 }
 
 .content {
@@ -183,13 +193,8 @@ label {
 }
 
 
-footer {
-    margin-top: 20%;
-    display: grid;
-    font-size: medium;
-    margin: 0;
-    font-family: 'Source Code Pro', monospace;
-}
+
+
 
 
 @media (min-width: 40rem) {
