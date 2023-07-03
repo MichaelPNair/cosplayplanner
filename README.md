@@ -75,6 +75,8 @@ You can also add progress pictures to your cosplay. From the cosplay details pag
 From the progress pictures page, you can add, edit or delete progress pictures.
 
 ## Future Improvement
+- change database tables to have rows cascade on delete of foreign key
+- make sql queries more efficient
 - Improve styling of buttons
 - Improve styling of tasks being shown
 - Improve styling of pages for editing or deleting tasks or cosplays
